@@ -9,6 +9,9 @@
 <body>
     <form id="form1" runat="server">
         <p>
+            <asp:Image ID="Image1" runat="server" Height="156px" ImageUrl="~/images/iress-logo.jpg" Width="1003px" />
+        </p>
+        <p>
             Information Capture</p>
         <p>
             Please provide the following information :</p>
@@ -16,10 +19,13 @@
             User ID&nbsp; :<asp:TextBox ID="TextBox4" runat="server" ValidateRequestMode="Enabled" ></asp:TextBox>
             <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" Height="16px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
             </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox4" ErrorMessage="Please Enter User ID!" ForeColor="#CC0000">*</asp:RequiredFieldValidator>
         </p>
         <p>
             First Name :
             <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
+           
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox1" ErrorMessage="Please Enter First Name!" ForeColor="#CC0000">*</asp:RequiredFieldValidator>
            
         </p>
         <p>
