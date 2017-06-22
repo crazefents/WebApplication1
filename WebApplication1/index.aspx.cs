@@ -12,7 +12,7 @@ namespace WebApplication1
 {
     public partial class index : System.Web.UI.Page
     {
-        
+
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Test1ConnectionString1"].ConnectionString);
 
         protected void Page_Load(object sender, EventArgs e)
@@ -22,13 +22,13 @@ namespace WebApplication1
             if (!IsPostBack)
             {
 
-                SqlDataAdapter da = new SqlDataAdapter("select * from People", con);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM People ORDER BY UserId + 0 ASC", con);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 DropDownList1.DataSource = dt;
                 DropDownList1.DataTextField = "userID";
                 DataBind();
-                
+
 
             }
         }
@@ -36,8 +36,8 @@ namespace WebApplication1
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
-            SqlCommand cmd = new SqlCommand("insert into People values('" + TextBox4.Text+"','"+TextBox1.Text+"','"+TextBox2.Text+"','"+TextBox3.Text+"')",con) ;
+
+            SqlCommand cmd = new SqlCommand("insert into People values('" + TextBox4.Text + "','" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "')", con);
             cmd.ExecuteNonQuery();
             con.Close();
             Label1.Visible = true;
@@ -51,7 +51,7 @@ namespace WebApplication1
             Label3.Visible = false;
             Label4.Visible = false;
 
-            SqlDataAdapter da = new SqlDataAdapter("select * from People ", con);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM People ORDER BY UserId + 0 ASC", con);
             DataTable dt = new DataTable();
             DataBind();
             con.Close();
@@ -63,7 +63,7 @@ namespace WebApplication1
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("update People set Fname='" +TextBox1.Text + "',Lname='" + TextBox2.Text + "',Age='" + TextBox3.Text + "'where UserID='" + DropDownList1.Text + "'", con);
+            SqlCommand cmd = new SqlCommand("update People set Fname='" + TextBox1.Text + "',Lname='" + TextBox2.Text + "',Age='" + TextBox3.Text + "',UserID='" + TextBox4.Text + "'where UserID='" + DropDownList1.Text + "'", con);
             cmd.ExecuteNonQuery();
             con.Close();
             Label2.Visible = true;
@@ -77,7 +77,7 @@ namespace WebApplication1
             Label3.Visible = false;
             Label4.Visible = false;
 
-            SqlDataAdapter da = new SqlDataAdapter("select * from People ", con);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM People ORDER BY UserId + 0 ASC ", con);
             DataTable dt = new DataTable();
             DataBind();
             con.Close();
@@ -91,7 +91,7 @@ namespace WebApplication1
             Label2.Visible = false;
             Label1.Visible = false;
             Label3.Visible = false;
-            SqlDataAdapter da = new SqlDataAdapter("select * from People where UserID='" + DropDownList1.Text+"'", con);
+            SqlDataAdapter da = new SqlDataAdapter("select * from People where UserID='" + DropDownList1.Text + "'", con);
             DataTable dt = new DataTable();
             da.Fill(dt);
             TextBox4.Text = dt.Rows[0][0].ToString();
@@ -99,7 +99,7 @@ namespace WebApplication1
             TextBox2.Text = dt.Rows[0][2].ToString();
             TextBox3.Text = dt.Rows[0][3].ToString();
 
-            
+
 
         }
 
@@ -119,7 +119,7 @@ namespace WebApplication1
             Label1.Visible = false;
             Label4.Visible = false;
 
-            SqlDataAdapter da = new SqlDataAdapter("select * from People ", con);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM People ORDER BY UserId + 0 ASC", con);
             DataTable dt = new DataTable();
             DataBind();
             con.Close();
@@ -127,5 +127,10 @@ namespace WebApplication1
             Label4.Text = "Your Data successfully refreshed!";
 
         }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
-}
+    }
