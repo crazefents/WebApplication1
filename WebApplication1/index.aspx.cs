@@ -51,7 +51,7 @@ namespace WebApplication1
             Label3.Visible = false;
             Label4.Visible = false;
 
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM People ORDER BY UserId + 0 ASC", con);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT distinct * FROM People ORDER BY UserId + 0 ASC", con);
             DataTable dt = new DataTable();
             DataBind();
             con.Close();
@@ -77,7 +77,7 @@ namespace WebApplication1
             Label3.Visible = false;
             Label4.Visible = false;
 
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM People ORDER BY UserId + 0 ASC ", con);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT distinct  * FROM People ORDER BY UserId + 0 ASC ", con);
             DataTable dt = new DataTable();
             DataBind();
             con.Close();
@@ -91,7 +91,7 @@ namespace WebApplication1
             Label2.Visible = false;
             Label1.Visible = false;
             Label3.Visible = false;
-            SqlDataAdapter da = new SqlDataAdapter("select * from People where UserID='" + DropDownList1.Text + "'", con);
+            SqlDataAdapter da = new SqlDataAdapter("select distinct * from People where UserID='" + DropDownList1.Text + "'", con);
             DataTable dt = new DataTable();
             da.Fill(dt);
             TextBox4.Text = dt.Rows[0][0].ToString();
@@ -119,7 +119,7 @@ namespace WebApplication1
             Label1.Visible = false;
             Label4.Visible = false;
 
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM People ORDER BY UserId + 0 ASC", con);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT distinct * FROM People ORDER BY UserId + 0 ASC", con);
             DataTable dt = new DataTable();
             DataBind();
             con.Close();

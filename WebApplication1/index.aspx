@@ -32,7 +32,6 @@
             User ID&nbsp; :<asp:DropDownList ID="DropDownList1" class="dropdown-List" runat="server" AutoPostBack="True" Height="16px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
             </asp:DropDownList>
                 <asp:TextBox ID="TextBox4" class="form-control input-sm" runat="server" ValidateRequestMode="Enabled" Width="224px" ></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox4" ErrorMessage="Please Enter User ID!" ForeColor="#CC0000"></asp:RequiredFieldValidator>
         
         
             <div>
