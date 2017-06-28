@@ -7,7 +7,7 @@
     <title></title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <script src="Scripts/bootstrap.js"></script>
-
+    <script src="Scripts/Validation.js"></script>
   
     </head>
 <body>
@@ -56,15 +56,29 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox3" ErrorMessage="RequiredFieldValidator" ForeColor="#CC0000">Please Enter Age!</asp:RequiredFieldValidator>
        
            </p>
+     
+        <p>
+            &nbsp;&nbsp; Email :
+            <asp:TextBox ID="TextBox5" class="form-control input-sm" runat="server" Width="223px"></asp:TextBox>
+             </p>
+        <p>
+        
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox3" ErrorMessage="RequiredFieldValidator" ForeColor="#CC0000">Please Enter Email!</asp:RequiredFieldValidator>
+       
+           </p>
+        
+          <p>
+        
+              &nbsp;</p>
         
         <p>
-            <asp:Button ID="Button1"  class="btn btn-default"  runat="server" OnClick="Button1_Click" Text="Insert" Width="88px" />
+            <asp:Button ID="Button1"  class="btn btn-default"  runat="server" OnClientClick="return userValid();" OnClick="Button1_Click" Text="Insert" Width="88px" />
            
             <asp:Label ID="Label1" runat="server" ForeColor="#000099" Text="Label" Visible="False"></asp:Label>
            
-            <asp:Button ID="Button3" class="btn btn-default" runat="server" Text="Update" OnClick="Button3_Click" Height="35px" />
+            <asp:Button ID="Button3" class="btn btn-default" runat="server" Text="Update" OnClientClick="return userValid();" OnClick="Button3_Click" Height="35px" />
                     <asp:Label ID="Label2" runat="server" ForeColor="#000099" Text="Label" Visible="False"></asp:Label>
-                    <asp:Button ID="Button2" class="btn btn-default" runat="server" Text="Delete" OnClick="Button2_Click" Width="88px" />
+                    <asp:Button ID="Button2" class="btn btn-default" runat="server" Text="Delete" OnClientClick="return userValid();" OnClick="Button2_Click" Width="88px" />
             <asp:Label ID="Label3" runat="server" ForeColor="#000099" Text="Label" Visible="False"></asp:Label>
         </p>
         <p>
@@ -78,6 +92,7 @@
                 <asp:BoundField DataField="Fname" HeaderText="Fname" SortExpression="Fname" />
                 <asp:BoundField DataField="Lname" HeaderText="Lname" SortExpression="Lname" />
                 <asp:BoundField DataField="Age" HeaderText="Age" SortExpression="Age" />
+               <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
             </Columns>
         </asp:GridView>
        

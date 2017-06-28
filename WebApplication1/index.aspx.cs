@@ -37,7 +37,7 @@ namespace WebApplication1
         protected void Button1_Click(object sender, EventArgs e)
         {
 
-            SqlCommand cmd = new SqlCommand("insert into People values('" + TextBox4.Text + "','" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "')", con);
+            SqlCommand cmd = new SqlCommand("insert into People values('" + TextBox4.Text + "','" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text +"', '" + TextBox5.Text +  "')", con);
             cmd.ExecuteNonQuery();
             con.Close();
             Label1.Visible = true;
@@ -46,6 +46,7 @@ namespace WebApplication1
             TextBox3.Text = "";
             TextBox2.Text = "";
             TextBox1.Text = "";
+            TextBox5.Text = "";
 
             Label2.Visible = false;
             Label3.Visible = false;
@@ -63,7 +64,7 @@ namespace WebApplication1
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("update People set Fname='" + TextBox1.Text + "',Lname='" + TextBox2.Text + "',Age='" + TextBox3.Text + "',UserID='" + TextBox4.Text + "'where UserID='" + DropDownList1.Text + "'", con);
+            SqlCommand cmd = new SqlCommand("update People set Fname='" + TextBox1.Text + "',Lname='" + TextBox2.Text + "',Age='" + TextBox3.Text + "',Email='"+TextBox5.Text+"',UserID='" + TextBox4.Text + "'where UserID='" + DropDownList1.Text + "'", con);
             cmd.ExecuteNonQuery();
             con.Close();
             Label2.Visible = true;
@@ -72,6 +73,7 @@ namespace WebApplication1
             TextBox3.Text = "";
             TextBox2.Text = "";
             TextBox1.Text = "";
+            TextBox5.Text = "";
 
             Label1.Visible = false;
             Label3.Visible = false;
@@ -98,6 +100,7 @@ namespace WebApplication1
             TextBox1.Text = dt.Rows[0][1].ToString();
             TextBox2.Text = dt.Rows[0][2].ToString();
             TextBox3.Text = dt.Rows[0][3].ToString();
+            TextBox5.Text = dt.Rows[0][4].ToString();
 
 
 
@@ -114,6 +117,7 @@ namespace WebApplication1
             TextBox3.Text = "";
             TextBox2.Text = "";
             TextBox1.Text = "";
+            TextBox5.Text = "";
 
             Label2.Visible = false;
             Label1.Visible = false;
