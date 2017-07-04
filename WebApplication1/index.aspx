@@ -28,6 +28,8 @@
             <td> 
             Please provide the following information :
                 </td></p>
+ 
+       <p>  The Time is : &nbsp<%= DateTime.Now.ToLongTimeString() %></p>
             &nbsp;
             User ID&nbsp; :<asp:DropDownList ID="DropDownList1" class="dropdown-List" runat="server" AutoPostBack="True" Height="16px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
             </asp:DropDownList>
@@ -81,6 +83,7 @@
                     <asp:Button ID="Button2" class="btn btn-default" runat="server" Text="Delete" OnClientClick="return userValid();" OnClick="Button2_Click" Width="88px" />
             <asp:Label ID="Label3" runat="server" ForeColor="#000099" Text="Label" Visible="False"></asp:Label>
         </p>
+        
         <p>
             &nbsp;&nbsp;&nbsp;<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="http://localhost:1296/index.aspx">Refresh</asp:HyperLink>
         </p>
